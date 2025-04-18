@@ -9,7 +9,8 @@ html {
 body {
 	font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
-    width: 800px;
+    width: 98%;
+	max-width: 960px;
     margin: 0 auto;
     border: 3px solid #931420;
     background-color: #fffded;
@@ -45,6 +46,48 @@ header img {
 .shadow {
 	text-shadow: 2px 2px 2px #800000;
 }
+/* the styles for the navigation menu */
+#nav_menu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+#nav_menu ul li {
+	float: left;
+	
+}
+#nav_menu ul li a {
+    display: block;
+    width: 160px;
+    text-align: center;
+    padding: 1em 0;
+    text-decoration: none;
+    background-color: #800000;
+    color: white;
+    font-weight: bold;
+}
+#nav_menu a.current {
+	color: yellow;
+}
+#nav_menu ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+}
+#nav_menu ul ul li {
+	float: none;
+}
+#nav_menu ul li:hover > ul {
+	display: block;
+	width: 100%;
+}
+#nav_menu > ul::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
 /* the styles for the section */
 section {
 	width: 525px;
@@ -70,7 +113,7 @@ section blockquote {
 }
 section ul {
 	padding: 0 0 .25em 1.25em;
-	list-style: circle;
+	list-style-type: circle;
 }
 section li {
 	padding-bottom: .35em;
@@ -93,6 +136,8 @@ article img {
 	float: right;
 	margin: .5em 0 1em 1em;
 	border: 1px solid black;
+	max-width: 40%;
+	min-width: 150px;
 }
 
 /* the styles for the aside */
@@ -106,6 +151,7 @@ aside h2 {
 	font-size: 130%;
 	padding: .5em 0 .25em 0;
 }
+
 aside h3 {
 	font-size: 105%;
 	padding-bottom: .25em;
@@ -126,50 +172,52 @@ footer p {
 	padding: 1em 0;
 }
 
-nav {
-	position: relative;
-}
 
-#nav_menu ul{
-	list-style: none;
-	margin: 0;
-}
-
-#nav_menu ul li {
-	float: left;
-}
-
-#nav_menu ul li a {
-	display: block;
-	width: 160px;
-	text-align: center;
-	padding: 1em 0;
-	text-decoration: none;
-	background-color: #800000;
-	color: white;
-	font-weight: bold;
-}
-
-#nav_menu a.current {
-	color: yellow;
-}
-
-#nav_menu ul ul li {
-	float: none;
-}
-
-#nav_menu ul ul {
+#mobile_menu {
 	display: none;
-	position: absolute;
-    top: 100%;
 }
 
-#nav_menu ul li:hover > ul {
-	display: block;
+@media only screen and (max-width: 730px) {
+	section h1 {
+		font-size: 125%;
+	}
+	section h2, aside h2 {
+		font-size: 110%;
+	}
+	aside h3 a {
+		font-size: 85%;
+	}
 }
 
-#nav_menu > ul::after {
-    content: "";
-    clear: both;
-    display: block;
+@media only screen and (max-width: 645px) {
+	header img{
+		float: none;
+	}
+	header{
+		text-align: center;
+	}
+	section{
+		float: none;
+		width: 95%;
+	}
+	aside{
+		float: none;
+		width: 95%;
+		padding-right: 2.5%;
+	}
+	article img{
+		max-width: 30%;
+	}
+	aside{
+		column-count:2;
+	}
+	#nav_menu{
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 415px) {
+	body{
+		font-size: 90%;
+	}
 }
